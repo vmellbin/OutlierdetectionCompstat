@@ -23,3 +23,7 @@ OutlierVec<- function(vector, std){
   z
 }
 
+document()
+
+
+
