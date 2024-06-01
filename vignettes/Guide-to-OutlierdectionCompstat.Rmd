@@ -1,0 +1,56 @@
+---
+title: "Guide-to-OutlierdectionCompstat"
+output: rmarkdown::html_vignette
+fig_width: 6
+fig_height: 4
+vignette: >
+  %\VignetteIndexEntry{Guide-to-OutlierdectionCompstat}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This packages attempts to find outliers based on the number of standard deviations. It includes a plot summary and print method aswell as the S3 object Outliervec
+
+```{r setup,echo=FALSE,out.width=c('500px')}
+library(OutlierdetectionCompstat)
+```
+
+The package assume that the data comes in the form of a vector. Below we have generated 100 standard normally distributed r.vs 
+
+```{r,echo=FALSE,fig.width=6,fig.height=4,fig.show="hold", fig.align="center"}
+set.seed(1000)
+vector<- rnorm(100)
+```
+
+Below we have plotted this dataset. 
+```{r,echo=FALSE,fig.width=6,fig.height=4,fig.show="hold", fig.align="center"}
+plot(vector,ylab="")
+```
+
+
+The packages attempts to discover outliers based on the number of standard deviations observations are away from the mean. As a default option it detects outliers that are more than 2 standard deviations away. The package uses the observed mean and observed standard deviation.
+
+```{r,echo=FALSE,fig.width=6,fig.height=4,fig.show="hold", fig.align="center"}
+Outliers<-OutlierVec(vector)
+Outliers
+```
+The package has found 5 potential outliers. More details can be shown using the summary function.
+
+```{r,echo=FALSE,fig.width=6,fig.height=4,fig.show="hold", fig.align="center"}
+Outliers<-OutlierVec(vector)
+summary(Outliers)
+```
+
+It also includes a plot function, which can be seen below.
+
+```{r,echo=FALSE,fig.width=6,fig.height=4,fig.show="hold", fig.align="center"}
+Outliers<-OutlierVec(vector)
+plot(Outliers)
+```
