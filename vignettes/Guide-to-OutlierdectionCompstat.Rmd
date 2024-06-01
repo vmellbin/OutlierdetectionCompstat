@@ -1,8 +1,6 @@
 ---
 title: "Guide-to-OutlierdectionCompstat"
 output: rmarkdown::html_vignette
-fig_width: 6
-fig_height: 4
 vignette: >
   %\VignetteIndexEntry{Guide-to-OutlierdectionCompstat}
   %\VignetteEngine{knitr::rmarkdown}
